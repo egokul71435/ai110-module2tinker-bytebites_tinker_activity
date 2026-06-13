@@ -9,10 +9,12 @@ fries = FoodItem("Crispy Fries", 3.49, "Sides", 4.1)
 cheesecake = FoodItem("Cheesecake Slice", 5.49, "Desserts", 4.8)
 veggie = FoodItem("Veggie Wrap", 7.49, "Burgers", 3.9)
 
+ALL_ITEMS = [burger, soda, brownie, milkshake, fries, cheesecake, veggie]
+
 print("=" * 40)
 print("1. FOOD ITEM ATTRIBUTES")
 print("=" * 40)
-for item in [burger, soda, brownie, milkshake, fries, cheesecake, veggie]:
+for item in ALL_ITEMS:
     print(f"  {item.name:<25} ${item.price:<6} {item.category:<10} rating: {item.popularity_rating}")
 
 # --- Menu: adding items ---
@@ -20,7 +22,7 @@ print("\n" + "=" * 40)
 print("2. MENU — ADDING ITEMS")
 print("=" * 40)
 menu = Menu()
-for item in [burger, soda, brownie, milkshake, fries, cheesecake, veggie]:
+for item in ALL_ITEMS:
     menu.add_item(item)
 print(f"  Items added: {len(menu.items)}")
 print(f"  Names: {[i.name for i in menu.items]}")

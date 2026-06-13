@@ -1,20 +1,19 @@
-# FoodItem
-# Represents a single product available for sale (e.g. "Spicy Burger").
-# Stores name, price, category, and popularity_rating.
-
 class FoodItem:
+    """A single product available for sale (e.g. "Spicy Burger")."""
+
     def __init__(self, name: str, price: float, category: str, popularity_rating: float):
         self.name = name
         self.price = price
         self.category = category
         self.popularity_rating = popularity_rating
 
+    def __repr__(self) -> str:
+        return f"FoodItem({self.name!r}, ${self.price}, {self.category}, rating={self.popularity_rating})"
 
-# Menu
-# Acts as the catalog of all FoodItems. Supports add_item to add a FoodItem
-# and filter_by_category to return only items matching a given category.
 
 class Menu:
+    """Catalog of all FoodItems; supports filtering by category."""
+
     def __init__(self):
         self.items: list[FoodItem] = []
 
@@ -25,11 +24,9 @@ class Menu:
         return [item for item in self.items if item.category == category]
 
 
-# Order
-# Represents a single purchase transaction. Holds a list of selected FoodItems
-# and provides calculate_total to sum their prices.
-
 class Order:
+    """A single purchase transaction; holds selected FoodItems and computes the total."""
+
     def __init__(self):
         self.items: list[FoodItem] = []
 
@@ -40,11 +37,9 @@ class Order:
         return sum(item.price for item in self.items)
 
 
-# Customer
-# Represents an app user. Stores the customer's name and a purchase_history
-# list of past Orders, used to verify they are a real user.
-
 class Customer:
+    """An app user with a name and a history of past Orders."""
+
     def __init__(self, name: str):
         self.name = name
         self.purchase_history: list[Order] = []
